@@ -5,8 +5,8 @@ const button = cva("rounded-3xl", {
   variants: {
     variant: {
       primary: "text-white bg-dark-purple hover:bg-light-purple",
-      secondary: "text-purple-600 bg-purple-100 hover:bg-purple-300",
-      destructive: "text-white bg-red hover:bg-red-300",
+      secondary: "text-dark-purple font-semibold bg-gray1 hover:bg-gray1",
+      destructive: "text-white bg-destructive hover:bg-destructive-light",
     },
     size: {
       small: "text-sm py-1 px-3",
@@ -18,8 +18,18 @@ const button = cva("rounded-3xl", {
 interface IButtonProps extends PropsWithChildren {
   variant: "primary" | "secondary" | "destructive";
   size: "small" | "large";
+  onClick: () => void;
 }
 
-export default function Button({ children, size, variant }: IButtonProps) {
-  return <button className={button({ variant, size })}>{children}</button>;
+export default function Button({
+  children,
+  size,
+  variant,
+  onClick,
+}: IButtonProps) {
+  return (
+    <button onClick={onClick} className={button({ variant, size })}>
+      {children}
+    </button>
+  );
 }

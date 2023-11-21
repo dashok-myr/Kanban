@@ -9,11 +9,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      visibility: ["group-hover"],
       colors: {
         "dark-purple": "#635FC7",
         "light-purple": "#A8A4FF",
+        "dark-black": "#000112",
+        "dark-gray1": "#20212C",
+        "dark-gray": "#2B2C37",
+        "med-gray": "#3E3F4E",
+        gray1: "#E4EBFA",
         gray: "#828FA3",
         "light-gray": "#F4F7FD",
+        destructive: "#EA5555",
+        "destructive-light": "#FF9898",
       },
     },
   },

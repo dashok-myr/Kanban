@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
+import { ColorModeProvider } from "@/ColorModeProvider";
+import { BoardsProvider } from "@/BoardProvider";
 
 export const metadata: Metadata = {
   title: "Kanban App",
@@ -14,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="dark">{children}</body>
+      <ColorModeProvider>
+        <BoardsProvider>
+          <body>{children}</body>
+        </BoardsProvider>
+      </ColorModeProvider>
     </html>
   );
 }
