@@ -48,7 +48,7 @@ export default function ViewTicketModal({
                 Current Status
               </div>
               <div className="mt-2 w-full rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="text-gray-700 block px-4 py-2 text-sm">
+                <div className="text-gray-700 dark:text-white dark:bg-dark-gray block px-4 py-2 text-sm">
                   {status}
                 </div>
               </div>

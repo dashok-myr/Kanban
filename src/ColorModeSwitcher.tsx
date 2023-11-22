@@ -7,6 +7,7 @@ import { ColorModeContext, EColorMode } from "@/ColorModeProvider";
 export default function ColorModeSwitcher() {
   const { colorMode, switchToDarkMode, switchToLightMode } =
     useContext(ColorModeContext);
+
   return (
     <div className="flex justify-center items-center gap-3 bg-light-gray dark:bg-dark-gray1 w-full h-10 rounded-lg">
       <Image alt="sun" src={sun} />

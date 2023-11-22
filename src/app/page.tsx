@@ -17,17 +17,13 @@ export default function Home() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [showDeleteModel, setShowDeleteModel] = useState(false);
 
-  if (!columns) return;
-
   return (
     <main className="flex h-screen divide-x divide-violet-100 dark:divide-med-gray">
-      {isSideBarOpen && (
-        <SideBar
-          isSideBarOpen={isSideBarOpen}
-          setIsSideBarOpen={setIsSideBarOpen}
-          onCloseSideBar={() => setIsSideBarOpen(false)}
-        />
-      )}
+      <SideBar
+        isSideBarOpen={isSideBarOpen}
+        setIsSideBarOpen={setIsSideBarOpen}
+        onCloseSideBar={() => setIsSideBarOpen(false)}
+      />
       <div
         className={classNames({
           "flex flex-col w-4/5 divide-y divide-violet-100 dark:divide-med-gray dark:bg-dark-gray":
@@ -39,13 +35,12 @@ export default function Home() {
         <div className="flex justify-between m-4 items-center dark:bg-dark-gray">
           <button
             onClick={() => {
-              console.log(board, "board");
               setShowDeleteModel(true);
             }}
-            className="flex items-center gap-2 text-xl font-semibold dark:text-white"
+            className="flex items-center gap-3 text-xl font-semibold dark:text-white"
           >
             {board.name}
-            <Image className="w-3 h-3" src={close} alt="board" />
+            <Image className="pt-0.5" src={close} alt="board" />
           </button>
           {showDeleteModel && (
             <DeleteModal

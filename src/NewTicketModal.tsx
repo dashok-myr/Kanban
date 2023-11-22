@@ -9,7 +9,6 @@ interface INewBoardModalProps {
   onClose: () => void;
   onCreateTicketSuccess: () => void;
 }
-//{ ...ticket, status: column.name }
 
 export default function NewTicketModal({
   initialSelectedStatus,

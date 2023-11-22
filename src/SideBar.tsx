@@ -33,6 +33,19 @@ export default function SideBar({
     setSelectedBoardIndex(index);
   }
 
+  if (!isSideBarOpen) {
+    return (
+      <button
+        onClick={() => {
+          setIsSideBarOpen(true);
+        }}
+        className="flex items-center justify-center bottom-5 absolute h-14 w-14 bg-dark-purple rounded-r-full z-30"
+      >
+        <Image width="25" src={eyeOpen} alt="eyeOpen" />
+      </button>
+    );
+  }
+
   return (
     <div className="w-1/5">
       <div className="flex flex-col p-8 h-screen justify-between dark:bg-dark-gray">
@@ -88,16 +101,6 @@ export default function SideBar({
           </button>
         </div>
       </div>
-      {!isSideBarOpen && (
-        <button
-          onClick={() => {
-            setIsSideBarOpen(true);
-          }}
-          className="flex items-center justify-center bottom-5 absolute h-14 w-14 bg-dark-purple rounded-r-full"
-        >
-          <Image width="25" src={eyeOpen} alt="eyeOpen" />
-        </button>
-      )}
     </div>
   );
 }

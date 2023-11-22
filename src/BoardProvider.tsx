@@ -187,9 +187,12 @@ export const BoardsProvider = ({ children }: { children: ReactNode }) => {
 
   function deleteBoard(selectedBoard: IBoard) {
     const copyBoards = [...boards];
-    const foundIndex = copyBoards.findIndex((board) => board === selectedBoard);
+    const foundIndex = copyBoards.findIndex(
+      (board) => board.name === selectedBoard.name
+    );
 
     copyBoards.splice(foundIndex, 1);
+    setSelectedBoardIndex(0);
     setBoards(copyBoards);
   }
 

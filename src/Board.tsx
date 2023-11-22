@@ -49,8 +49,8 @@ export default function Board() {
                   descriptionLabel="Are you sure you want to delete this colum? This action will delete all ticket in the current colum."
                   onClose={() => setShowDeleteModal(false)}
                   onDelete={() => {
-                    deleteColumn(deleteIndexColumn);
                     setShowDeleteModal(false);
+                    deleteColumn(deleteIndexColumn);
                   }}
                 />
               )}
