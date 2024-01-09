@@ -49,6 +49,7 @@ export default function Home() {
               onClose={() => setShowDeleteModel(false)}
               onDelete={() => {
                 deleteBoard(board);
+                setShowDeleteModel(false);
               }}
             />
           )}

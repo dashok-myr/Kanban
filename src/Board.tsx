@@ -43,22 +43,22 @@ export default function Board() {
                   alt="close"
                 />
               </button>
-              {showDeleteModal && (
-                <DeleteModal
-                  titleLabel="Delete this column?"
-                  descriptionLabel="Are you sure you want to delete this colum? This action will delete all ticket in the current colum."
-                  onClose={() => setShowDeleteModal(false)}
-                  onDelete={() => {
-                    setShowDeleteModal(false);
-                    deleteColumn(deleteIndexColumn);
-                  }}
-                />
-              )}
             </div>
             <Column columnIndex={columnIndex} />
           </div>
         );
       })}
+      {showDeleteModal && (
+        <DeleteModal
+          titleLabel="Delete this column?"
+          descriptionLabel="Are you sure you want to delete this column? This action will delete all ticket in the current colum."
+          onClose={() => setShowDeleteModal(false)}
+          onDelete={() => {
+            setShowDeleteModal(false);
+            deleteColumn(deleteIndexColumn);
+          }}
+        />
+      )}
       <button
         onClick={() => {
           setShowModal(true);
