@@ -87,7 +87,7 @@ export const BoardContext = createContext<{
   selectedBoardIndex: number;
   setSelectedBoardIndex: Dispatch<SetStateAction<number>>;
   boards: IBoard[];
-  setBoards: Dispatch<SetStateAction<IBoard[]>>;
+  setBoards: (newValue: IBoard[]) => void;
   appendTicket: (columnIndex: number, ticket: ITicket) => void;
   appendColumn: (newColumn: IColumn) => void;
   appendTicketByColumnName: (columnName: string, ticket: ITicket) => void;

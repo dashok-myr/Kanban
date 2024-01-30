@@ -27,11 +27,7 @@ export default function SideBar({
   const { selectedBoardIndex, setSelectedBoardIndex, boards } =
     useContext(BoardContext);
 
-  const [showModal, setShowModal] = useState(false);
-
-  function selectBoard(index: number) {
-    setSelectedBoardIndex(index);
-  }
+  const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
 
   if (!isSideBarOpen) {
     return (
@@ -63,7 +59,7 @@ export default function SideBar({
               return (
                 <button
                   key={index}
-                  onClick={() => selectBoard(index)}
+                  onClick={() => setSelectedBoardIndex(index)}
                   className={classNames(
                     "flex gap-3 items-center text-gray h-10 w-48 rounded-r-3xl hover:bg-light-purple hover:text-dark-purple",
                     {
@@ -81,7 +77,7 @@ export default function SideBar({
             <Image className="w-4 h-4" src={boardIcon} alt="board" />
             <button
               onClick={() => {
-                setShowModal(true);
+                setShowCreateBoardModal(true);
               }}
               data-modal-target="default-modal"
               data-modal-toggle="default-modal"
@@ -90,7 +86,9 @@ export default function SideBar({
             >
               + Create New Board
             </button>
-            {showModal ? <NewBoardModal setShowModal={setShowModal} /> : null}
+            {showCreateBoardModal && (
+              <NewBoardModal setShowModal={setShowCreateBoardModal} />
+            )}
           </div>
         </div>
         <div className="flex flex-col gap-4">

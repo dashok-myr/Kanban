@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const [storedLocallyValue, setStoredLocallyValue] = useState<T>(() => {
@@ -9,9 +9,9 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 
   return [
     storedLocallyValue,
-    (newValue) => {
+    (newValue: T) => {
       window.localStorage.setItem(key, JSON.stringify(newValue));
       setStoredLocallyValue(newValue);
     },
-  ] as [T, Dispatch<SetStateAction<T>>];
+  ] as const;
 }
